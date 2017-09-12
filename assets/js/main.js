@@ -71,9 +71,7 @@ const appMap = {
         });
         appMap.map.setZoom(17);
 
-        //inputOrigen.value = new google.maps.LatLng(latitud,longitud); //CON ESTO LOGRO QUE EN EL INPUT ORIGEN SALGA LAS COORDENADAS DE MI UBICACION
-
-        appMap.markerOrigen.setVisible(true);
+         appMap.markerOrigen.setVisible(true);
 
         appMap.detalleUbicacionOrigen.setContent('<div><strong>Mi ubicación actual</strong><br>');
         appMap.detalleUbicacionOrigen.open(appMap.map, appMap.markerOrigen);
@@ -81,11 +79,10 @@ const appMap = {
 
     marcarUbicacion : function (place, detalleUbicacion, marker) {
         if (!place.geometry) {
-            // Error si no encuentra el lugar indicado
+            // Error , sino encuentra el lugar
             window.alert("No encontramos el lugar que indicaste: '" + place.name + "'");
             return;
         }
-        // If the place has a geometry, then present it on a map.
         if (place.geometry.viewport) {
             appMap.map.fitBounds(place.geometry.viewport);
         } else {
